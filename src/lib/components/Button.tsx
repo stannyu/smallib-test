@@ -1,12 +1,19 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import React from 'react';
-import { jsx, css } from '@emotion/react';
+import React, { useEffect } from 'react';
+import { jsx, css, useTheme } from '@emotion/react';
 
 const Button = (props: any) => {
+  const theme: any = useTheme();
+
+  useEffect(() => {
+    console.log(theme, 'THEME');
+  }, [theme]);
+
   const style = css`
     color: hotpink;
     width: 200px;
+    border: 6px dashed ${theme.colors.blue};
   `;
 
   return (
